@@ -29,6 +29,7 @@ app.use(
   cors({
     origin: 'https://u-zo.github.io',
     credentials: true,
+    exposeHeaders: 'last-page',
   }),
 );
 
