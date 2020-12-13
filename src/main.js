@@ -3,7 +3,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
-import cors from 'cors';
+import cors from '@koa/cors';
 
 import api from './api';
 import jwtMiddleware from './lib/jwtMiddleware';
@@ -23,9 +23,11 @@ mongoose
 const app = new Koa();
 const router = new Router();
 
+app.proxy = true;
+
 app.use(
   cors({
-    origin: true,
+    origin: 'https://u-zo.github.io',
     credentials: true,
   }),
 );
